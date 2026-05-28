@@ -13,10 +13,12 @@ Assume they are a skilled developer, but know almost nothing about our toolset o
 
 **Announce at start:** "I'm using the writing-plans skill to create the implementation plan."
 
-**Context:** If working in an isolated worktree, it should have been created via the `superpowers:using-git-worktrees` skill at execution time.
+**Context:** This should be run in a dedicated worktree (created by brainstorming skill) when implementation is about to begin. In Plan Mode, remain in Plan Mode and only save the plan artifact.
 
 **Save plans to:** `docs/superpowers/plans/YYYY-MM-DD-<feature-name>.md`
 - (User preferences for plan location override this default)
+
+**Plan Mode artifact saving:** If the host provides `save_superpowers_artifact`, use it to save the completed plan with `kind="plan"`, a lowercase hyphenated `slug`, and the complete Markdown plan as `content`. This is the only file-writing action allowed in Plan Mode. Do not use general-purpose edit/write tools in Plan Mode. If the tool is unavailable or denied, output the complete plan inline inside the host's required plan block and say it was not saved.
 
 ## Scope Check
 
@@ -150,3 +152,5 @@ After saving the plan, offer execution choice:
 **If Inline Execution chosen:**
 - **REQUIRED SUB-SKILL:** Use superpowers:executing-plans
 - Batch execution with checkpoints for review
+
+**If the plan was not saved:** Say "Plan complete inline, but not saved because `save_superpowers_artifact` was unavailable or denied." Then provide the host's inline plan block. Do not offer execution choices until the user has a saved plan file or explicitly asks to execute from the inline plan.
