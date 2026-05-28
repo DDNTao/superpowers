@@ -98,6 +98,9 @@ When skills reference tools you don't have, substitute OpenCode equivalents:
 - \`Read\`, \`Write\`, \`Edit\`, \`Bash\` → Your native tools
 - Plan Mode Superpowers artifacts → Use \`save_superpowers_artifact\` for approved specs and plans
 
+**Plan Mode artifact-saving exception:**
+OpenCode Plan Mode normally forbids modifying files. The dedicated \`save_superpowers_artifact\` tool is the only allowed exception for Superpowers workflow artifacts. When a Superpowers brainstorming spec or writing-plans implementation plan has been approved or finalized, call \`save_superpowers_artifact\` immediately and do not defer saving to implementation. This exception is limited to Markdown files under \`docs/superpowers/specs/\` and \`docs/superpowers/plans/\`; do not edit implementation files, run formatters, commit, or use general-purpose write/edit tools in Plan Mode.
+
 Use OpenCode's native \`skill\` tool to list and load skills.`;
 
     return `<EXTREMELY_IMPORTANT>

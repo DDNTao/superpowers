@@ -18,7 +18,7 @@ Assume they are a skilled developer, but know almost nothing about our toolset o
 **Save plans to:** `docs/superpowers/plans/YYYY-MM-DD-<feature-name>.md`
 - (User preferences for plan location override this default)
 
-**Plan Mode artifact saving:** If the host provides `save_superpowers_artifact`, use it to save the completed plan with `kind="plan"`, a lowercase hyphenated `slug`, and the complete Markdown plan as `content`. This is the only file-writing action allowed in Plan Mode. Do not use general-purpose edit/write tools in Plan Mode. If the tool is unavailable or denied, output the complete plan inline inside the host's required plan block and say it was not saved.
+**Plan Mode artifact saving:** In OpenCode, when `save_superpowers_artifact` is present, use it to save the completed plan with `kind="plan"`, a lowercase hyphenated `slug`, and the complete Markdown plan as `content`. This is the only file-writing action allowed in Plan Mode. Do not use general-purpose edit/write tools in Plan Mode. Do not make saving the plan a later implementation step when the tool is available. If the tool is unavailable or denied, output the complete plan inline inside the host's required plan block and say it was not saved.
 
 ## Scope Check
 

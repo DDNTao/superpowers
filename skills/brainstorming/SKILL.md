@@ -110,7 +110,7 @@ digraph brainstorming {
 
 - Write the validated design (spec) to `docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md`
   - (User preferences for spec location override this default)
-- In Plan Mode, save the spec with `save_superpowers_artifact` using `kind="spec"`, a lowercase hyphenated `slug`, and the complete Markdown spec as `content`. This is the only allowed write in Plan Mode.
+- In OpenCode Plan Mode, when `save_superpowers_artifact` is present, save the spec immediately with `kind="spec"`, a lowercase hyphenated `slug`, and the complete Markdown spec as `content`. This is the only allowed write in Plan Mode; do not make saving the spec a later implementation step.
 - If `save_superpowers_artifact` is unavailable or denied, provide the complete spec inline and state that it was not saved.
 - Use elements-of-style:writing-clearly-and-concisely skill if available
 - Commit the design document to git only outside Plan Mode

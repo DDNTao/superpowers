@@ -31,3 +31,25 @@ test('OpenCode plugin exposes a restricted Superpowers artifact save tool', asyn
   assert.equal(files.length, 1);
   assert.match(files[0], /^\d{4}-\d{2}-\d{2}-plugin-tool-plan\.md$/);
 });
+
+test('OpenCode bootstrap explains the Plan Mode artifact-saving exception', async () => {
+  const plugin = await SuperpowersPlugin({});
+  const output = {
+    messages: [
+      {
+        info: { role: 'user' },
+        parts: [{ type: 'text', text: 'hello' }],
+      },
+    ],
+  };
+
+  await plugin['experimental.chat.messages.transform']({}, output);
+
+  const bootstrap = output.messages[0].parts[0].text;
+  assert.match(bootstrap, /Plan Mode artifact-saving exception/);
+  assert.match(bootstrap, /save_superpowers_artifact/);
+  assert.match(bootstrap, /do not defer saving to implementation/);
+  assert.match(bootstrap, /docs\/superpowers\/specs/);
+  assert.match(bootstrap, /docs\/superpowers\/plans/);
+});
+
